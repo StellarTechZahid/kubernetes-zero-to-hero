@@ -1,0 +1,32 @@
+name: Validate Kubernetes examples
+
+on:
+  push:
+    paths:
+      - '**/*.yaml'
+      - '**/*.yml'
+  pull_request:
+    paths:
+      - '**/*.yaml'
+      - '**/*.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install kubeconform
+        run: |
+          curl -L -o /tmp/kubeconform.tar.gz https://github.com/yannh/kubeconform/releases/latest/download/kubeconform-linux-amd64.tar.gz
+          tar -xzf /tmp/kubeconform.tar.gz -C /tmp kubeconform
+          sudo install /tmp/kubeconform /usr/local/bin/kubeconform
+
+      - name: Validate Kubernetes manifests
+        run: |
+          find . -type f \( -name '*.yaml' -o -name '*.yml' \) -not -path './.git/*' -print0 \
+            | xargs -0 -r kubeconform -strict -summary
