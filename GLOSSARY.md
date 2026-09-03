@@ -1,0 +1,22 @@
+# Kubernetes Glossary
+
+- **API server:** Kubernetes component that serves the API.
+- **Cluster:** Kubernetes control plane plus worker infrastructure and supporting components.
+- **Controller:** Reconciliation loop that drives resources toward desired state.
+- **CRD:** Custom Resource Definition that extends the Kubernetes API with a custom resource type.
+- **CNI:** Container Network Interface; ecosystem for container networking implementations.
+- **CSI:** Container Storage Interface; standard interface for storage drivers.
+- **CRI:** Container Runtime Interface; interface between kubelet and container runtimes.
+- **Deployment:** Workload resource for managing stateless replicated Pods and rollout strategy.
+- **EndpointSlice:** Resource representing network endpoints associated with a Service.
+- **HPA:** Horizontal Pod Autoscaler.
+- **Ingress:** API object for HTTP/HTTPS routing through an ingress implementation.
+- **Kubelet:** Node agent responsible for making sure Pods assigned to its node are running and healthy according to configuration.
+- **Namespace:** Scope for namespaced Kubernetes resources.
+- **Pod:** Smallest deployable unit containing one or more containers.
+- **RBAC:** Role-Based Access Control.
+- **ReplicaSet:** Ensures a specified number of matching Pods exist.
+- **Service:** Stable virtual endpoint for a set of selected Pods.
+- **StatefulSet:** Workload resource for applications needing stable identities and/or storage associations.
+- **Taint:** Node property that repels Pods unless tolerated.
+- **Toleration:** Pod configuration allowing it to be considered for a node with a matching taint.
